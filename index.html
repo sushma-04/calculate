@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container{
+        text-align :center;
+    }
+    
+    table{
+        margin : auto;
+    }
+    
+    input{
+        font-size :30px;
+        width : auto;
+        border:2px solid gray;
+        border-radius: 20px;
+        padding:10px;
+    }
+    
+    button{
+        font-size:40px;
+        height :100px;
+        width :100px;
+        background-color:gray;
+        color:white;
+        border-radius: 10px;
+    }
+    
+    .calculator{
+        
+        border:3px solid black;
+        display :inline-block;
+        padding:20px;
+        
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator</h1>
+<!-- input screen -->
+<div class="calulator">
+        <input type="text" name="screen" id="screen">
+        <table>
+            
+            <tr>
+                <td>
+                    <button>
+                        (
+                    </button>
+                </td>
+
+                <td>
+                    <button>
+                        )
+                    </button>
+                </td>
+
+                <td>
+                    <button>
+                       %
+                    </button>
+                </td>
+
+                <td>
+                    <button>
+                      clr
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td><button>7</button></td>
+                <td><button>8</button></td>
+                <td><button>9</button></td>
+                <td><button>-</button></td>
+            </tr>
+
+            <tr>
+                <td><button>4</button></td>
+                <td><button>5</button></td>
+                <td><button>6</button></td>
+                <td><button>*</button></td>
+            </tr>
+
+            <tr>
+                <td><button>1</button></td>
+                <td><button>2</button></td>
+                <td><button>3</button></td>
+                <td><button>+</button></td>
+            </tr>
+
+            <tr>
+                <td><button>0</button></td>
+                <td><button>/</button></td>
+                <td><button>.</button></td>
+                <td><button>=</button></td>
+            </tr>
+        
+        </table>
+    </div>
+    </div>
+
+    <!-- <script src="calc.js"></script> -->
+
+    <script>
+
+let screen = document.getElementById('screen');
+
+let buttons = document.querySelectorAll('button');
+
+let screenValue= '';
+for(item of buttons){
+    item.addEventListener('click',(e)=>{
+        buttonText = e.target.innerText;
+        // console.log(e);
+
+        // console.log(buttonnText);
+
+        if(buttonText == 'X'){
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+            //input id
+
+            
+        }
+
+        else if(buttonText == 'clr'){
+            screenValue = " ";
+            screen.value = screenValue;
+        }
+
+        else if(buttonText == '=') {
+            screenValue = eval(screenValue);
+            screen.value = screenValue;
+        
+        }
+
+        else{
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+    })
+}
+
+    </script>
+</body>
+</html>
